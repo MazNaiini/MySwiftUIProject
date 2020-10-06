@@ -10,10 +10,12 @@ struct CardView: View {
     var body: some View {
         VStack {
             Text(model.title)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
                 .padding(8)
                 .font(.largeTitle)
                 .foregroundColor(.primary)
+                .blur(radius: 5.0)
             Button(model.buttonTitle, action: model.buttonAction)
             .padding(8)
         }
@@ -22,15 +24,10 @@ struct CardView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                .stroke(
-                    style: .init(lineWidth: 5)
-                )
+                .stroke(style: .init(lineWidth: 5))
         )
-
-
         .background(gradient)
         .cornerRadius(Constants.cornerRadius, antialiased: true)
-
     }
     
     private var gradient: AngularGradient {
@@ -42,7 +39,6 @@ struct CardView: View {
     enum Constants {
         static let cornerRadius: CGFloat = 80
     }
-    
 }
 
 struct CardView_Previews: PreviewProvider {
