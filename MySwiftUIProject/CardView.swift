@@ -15,7 +15,6 @@ struct CardView: View {
                 .padding(8)
                 .font(.largeTitle)
                 .foregroundColor(.primary)
-                .blur(radius: 5.0)
             Button(model.buttonTitle, action: model.buttonAction)
             .padding(8)
         }
@@ -27,7 +26,7 @@ struct CardView: View {
                 .stroke(style: .init(lineWidth: 5))
         )
         .background(gradient)
-        .cornerRadius(Constants.cornerRadius, antialiased: true)
+        .cornerRadius(Constants.cornerRadius, antialiased: false)
     }
     
     private var gradient: AngularGradient {
@@ -44,7 +43,7 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         CardView(
-            model: .init(5)
+            model: .init(200)
         )
     }
 }
